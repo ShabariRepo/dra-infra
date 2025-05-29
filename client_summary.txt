@@ -1,0 +1,18 @@
+
+✅ Phase 2 Complete: GitHub Self-Hosted Runner (EC2-Based)
+
+We have provisioned AWS infrastructure to host a GitHub Actions runner using EC2.
+This allows you to run CI workflows securely in your own AWS environment.
+
+Provisioned:
+- VPC + Subnet
+- IAM Role and Instance Profile
+- EC2 Runner with Auto Registration to GitHub
+- User data script to install dependencies and start runner
+
+Next Steps (Optional):
+- Containerize the environment
+- Move to EKS and ephemeral runners
+- Use GitHub App or OIDC for better auth security
+
+All infrastructure is managed via Terraform.
