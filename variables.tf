@@ -11,17 +11,17 @@ variable "github_repo" {
   default     = "ci-sandbox"
 }
 
-variable "github_token" {
+variable "ghub_token" {
   description = "GitHub PAT for runner registration"
   type        = string
   sensitive   = true
-  default     = "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"
+  default     = ""
 }
 
 variable "gh_pat" {
   description = "GitHub Personal Access Token for runner registration"
   sensitive   = true
-  default     = "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"
+  default     = ""
 }
 
 variable "gh_owner" {
