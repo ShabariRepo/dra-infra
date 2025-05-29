@@ -32,6 +32,9 @@ jobs:
             -var="ghub_token=${{ secrets.GHUB_TOKEN }}" \
             -var="gh_owner=deepr-devsecops" \
             -var="github_repo=deepr-devsecops/ci-sandbox"
+      
+      - name: Verify AWS Account
+        run: aws sts get-caller-identity
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
