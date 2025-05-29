@@ -6,7 +6,7 @@ resource "aws_instance" "github_runner" {
   security_groups      = [aws_security_group.runner_sg.id]
   iam_instance_profile = aws_iam_instance_profile.runner_profile.name
   user_data = templatefile("${path.module}/user_data.sh", {
-    ghub_token   = var.ghub_token
+    ghub_token     = var.ghub_token
     GH_PAT         = var.gh_pat
     GITHUB_REPO    = var.github_repo
     GH_REPO        = var.github_repo

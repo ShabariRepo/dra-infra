@@ -9,6 +9,13 @@ resource "aws_subnet" "runner_subnet" {
   map_public_ip_on_launch = true
 }
 
+resource "aws_subnet" "runner_subnet_2" {
+  vpc_id                  = aws_vpc.runner_vpc.id
+  cidr_block              = "10.0.2.0/24"
+  availability_zone       = "us-east-1b"
+  map_public_ip_on_launch = true
+}
+
 resource "aws_security_group" "runner_sg" {
   name        = "runner-sgx"
   description = "Allow SSH & GitHub Actions traffic"
