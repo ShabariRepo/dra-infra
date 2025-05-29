@@ -10,7 +10,7 @@ resource "aws_subnet" "runner_subnet" {
 }
 
 resource "aws_security_group" "runner_sg" {
-  name        = "runner-sg"
+  name        = "runner-sgx"
   description = "Allow SSH & GitHub Actions traffic"
   vpc_id      = aws_vpc.runner_vpc.id
 
