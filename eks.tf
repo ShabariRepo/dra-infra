@@ -23,8 +23,11 @@ resource "aws_eks_node_group" "this" {
   cluster_name    = aws_eks_cluster.this.name
   node_group_name = "deepr-eks-nodes"
   node_role_arn   = aws_iam_role.eks_node_role.arn
-  subnet_ids      = [aws_subnet.runner_subnet.id]
-  instance_types  = ["t3.medium"]
+  subnet_ids = [
+    aws_subnet.runner_subnet.id,
+    aws_subnet.runner_subnet_2.id,
+  ]
+  instance_types = ["t3.medium"]
 
   scaling_config {
     desired_size = 1
