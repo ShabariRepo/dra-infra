@@ -10,15 +10,6 @@ output "runner_iam_role_arn" {
 }
 
 # -------
-output "runner_instance_public_ip" {
-  description = "Public IP of the GitHub Actions EC2 runner"
-  value       = aws_instance.github_runner.public_ip
-}
-
-output "runner_iam_role_arn" {
-  description = "ARN of the IAM role attached to the EC2 GitHub Actions runner"
-  value       = aws_iam_role.runner_role.arn
-}
 
 output "eks_cluster_name" {
   description = "EKS cluster name"
