@@ -26,7 +26,7 @@ jobs:
         run: terraform init
 
       - name: Terraform Lock Pick
-        run: terraform force-unlock e1d25628-90e2-a8ae-4fcd-dfc28cc76d63
+        run: terraform force-unlock e1d25628-90e2-a8ae-4fcd-dfc28cc76d63 -auto-approve
 
 
     #   - name: Terraform Plan
