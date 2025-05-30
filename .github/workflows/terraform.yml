@@ -25,29 +25,29 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      - name: Terraform Lock Pick
-        run: terraform force-unlock -force e1d25628-90e2-a8ae-4fcd-dfc28cc76d63 || true
+    #   - name: Terraform Lock Pick
+    #     run: terraform force-unlock -force e1d25628-90e2-a8ae-4fcd-dfc28cc76d63 || true
 
 
-    #   - name: Terraform Plan
-    #     run: |
-    #       terraform plan \
-    #         -var="gh_pat=${{ secrets.GH_PAT }}" \
-    #         -var="ghub_token=${{ secrets.GHUB_TOKEN }}" \
-    #         -var="gh_owner=deepr-devsecops" \
-    #         -var="github_repo=deepr-devsecops/ci-sandbox"
+      - name: Terraform Plan
+        run: |
+          terraform plan \
+            -var="gh_pat=${{ secrets.GH_PAT }}" \
+            -var="ghub_token=${{ secrets.GHUB_TOKEN }}" \
+            -var="gh_owner=deepr-devsecops" \
+            -var="github_repo=deepr-devsecops/ci-sandbox"
       
-    #   - name: Verify AWS Account
-    #     run: aws sts get-caller-identity
+      - name: Verify AWS Account
+        run: aws sts get-caller-identity
 
-    #   - name: Terraform Apply
-    #     if: github.ref == 'refs/heads/main'
-    #     run: |
-    #       terraform apply -auto-approve \
-    #         -var="gh_pat=${{ secrets.GH_PAT }}" \
-    #         -var="ghub_token=${{ secrets.GHUB_TOKEN }}" \
-    #         -var="gh_owner=deepr-devsecops" \
-    #         -var="github_repo=deepr-devsecops/ci-sandbox"
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'
+        run: |
+          terraform apply -auto-approve \
+            -var="gh_pat=${{ secrets.GH_PAT }}" \
+            -var="ghub_token=${{ secrets.GHUB_TOKEN }}" \
+            -var="gh_owner=deepr-devsecops" \
+            -var="github_repo=deepr-devsecops/ci-sandbox"
 
     #   - name: Terraform Destroy
     #     run: |
